@@ -1,0 +1,14 @@
+{
+  "name": "Chat",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/cli": "^9.0.7",
+    "@wdio/local-runner": "^9.0.7",
+    "@wdio/mocha-framework": "^9.0.6",
+    "@wdio/visual-service": "^5.2.1",
+    "appium-xcuitest-driver": "^7.24.16"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.ts"
+  }
+}
