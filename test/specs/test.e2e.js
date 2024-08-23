@@ -1,16 +1,40 @@
-import { expect, browser, $ } from '@wdio/globals'
+import { expect, browser, $ } from "@wdio/globals";
 
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        await browser.url(`https://the-internet.herokuapp.com/login`)
+describe("Login flow", () => {
+  it("should login with valid credentials", async () => {
+    //await browser.url(`URL`)
+    //
 
-        await $('#username').setValue('tomsmith')
-        await $('#password').setValue('SuperSecretPassword!')
-        await $('button[type="submit"]').click()
+    await $('//XCUIElementTypeTextField[@value="Enter email"]').setValue(
+      "arun4@gm.com"
+    );
+    await $(
+      '//XCUIElementTypeSecureTextField[@value="Enter password"]'
+    ).setValue("asdfgh");
+    await $("").click();
 
-        await expect($('#flash')).toBeExisting()
-        await expect($('#flash')).toHaveText(
-            expect.stringContaining('You logged into a secure area!'))
-    })
-})
+    //assertion
+    await expect($("#flash")).toBeExisting();
+    await expect($("#flash")).toHaveText(
+      expect.stringContaining("You logged into a secure area!")
+    );
+  });
 
+  it("test for sending messages", async () => {
+    await $("[locator]").setValue("[message]");
+    await $("[locator]").click();
+
+    //assertion
+    await expect($("[locator]")).toBeExisting();
+    await expect($("[locator]")).toHaveText(expect.stringContaining("[TEXT]"));
+  });
+
+  it("test for receiving messages", async () => {
+    await $("[locator]").setValue("[message]");
+    await $("[locator]").click();
+
+    //assertion
+    await expect($("[locator]")).toBeExisting();
+    await expect($("[locator]")).toHaveText(expect.stringContaining("[TEXT]"));
+  });
+});
