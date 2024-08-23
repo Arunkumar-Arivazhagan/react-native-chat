@@ -1,13 +1,10 @@
-import type { Options } from '@wdio/types'
-export const config: Options.Testrunner = {
+export const config = {
     //
     // ====================
     // Runner Configuration
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
-    tsConfigPath: './tsconfig.json',
-    
     //
     // ==================
     // Specify Test Files
@@ -24,7 +21,7 @@ export const config: Options.Testrunner = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/*.ts'
+        './test/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -53,12 +50,12 @@ export const config: Options.Testrunner = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        // capabilities for local Appium web tests on iOS
-        platformName: 'iOS',
-        browserName: 'Safari',
-        'appium:deviceName': 'iPhone Simulator',
-        'appium:platformVersion': '16.4',
-        'appium:automationName': 'XCUITest'
+        // capabilities for local Appium web tests on an Android Emulator
+        platformName: 'Android',
+        browserName: 'Chrome',
+        'appium:deviceName': 'Android GoogleAPI Emulator',
+        'appium:platformVersion': '12.0',
+        'appium:automationName': 'UiAutomator2'
     }],
 
     //
